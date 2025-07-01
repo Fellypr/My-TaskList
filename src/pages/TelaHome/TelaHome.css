@@ -1,0 +1,146 @@
+.TelaHome {
+  height: 100vh;
+  background-color: #edf3f8;
+  & nav {
+    background-color: #407bff;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 6px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 6px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 6px 5px 0px rgba(0, 0, 0, 0.75);
+    & p {
+      font-size: 25px;
+      color: #ffffff;
+    }
+  }
+  & section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: auto;
+    padding: 10px;
+    margin-top: 5rem;
+    gap: 5rem;
+    & .TaskList {
+      border-radius: 12px;
+      background-color: #fcfcfe;
+      width: 400px;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      box-shadow: 1px 2px 17px -3px rgba(0, 0, 0, 0.75);
+      -webkit-box-shadow: 1px 2px 17px -3px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 1px 2px 17px -3px rgba(0, 0, 0, 0.75);
+      & .TaskItem {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        width: 80%;
+        height: 70%;
+        border-radius: 8px;
+        background-color: rgb(235, 235, 235);
+        outline: 1.5px solid #407bff;
+        border: none;
+        font-size: 16px;
+        color: black;
+        overflow-y: auto;
+        gap: 2px;
+        & .Task {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: #000000;
+          width: 100%;
+          padding: 10px;
+
+            & button {
+              height: 30px;
+              border-radius: 8px;
+              padding: 5px;
+              background-color:transparent;
+              border: none;
+              font-size: 16px;
+              color: black;
+              transition: all 0.3s ease-in-out;
+            }
+            & button:hover {
+              background-color: red;
+              cursor: pointer;
+            }
+        }
+      }
+      & .Title {
+        font-size: 20px;
+        color: #000000;
+        font-weight: 600;
+      }
+      & .AddingTask {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        & input {
+          height: 30px;
+          border-radius: 8px 0px 0px 8px;
+          padding-left: 8px;
+          background-color: rgb(255, 255, 255);
+          outline: 1.5px solid #407bff;
+          border: none;
+          font-size: 16px;
+          color: black;
+        }
+        & button {
+          height: 30px;
+          border-radius: 0px 8px 8px 0px;
+          padding: 5px;
+          background-color: rgb(47, 235, 0);
+          outline: 1.5px solid #407bff;
+          border: none;
+          font-size: 16px;
+          color: black;
+          cursor: pointer;
+        }
+      }
+    }
+    & .CreateTask {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      border-radius: 12px;
+      width: 400px;
+      height: 400px;
+      background-color: #fcfcfe;
+      box-shadow: 1px 2px 17px -3px rgba(0, 0, 0, 0.75);
+      -webkit-box-shadow: 1px 2px 17px -3px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 1px 2px 17px -3px rgba(0, 0, 0, 0.75);
+      & .Title {
+        font-size: 20px;
+        color: #000000;
+        font-weight: 600;
+      }
+      & button {
+        width: 100%;
+        height: 30px;
+        border-radius: 8px;
+        padding: 5px;
+        background-color: rgb(47, 235, 0);
+        border: none;
+        font-size: 16px;
+        color: black;
+      }
+      & button:hover {
+        cursor: pointer;
+        background-color: rgb(0, 255, 0);
+      }
+    }
+  }
+}
