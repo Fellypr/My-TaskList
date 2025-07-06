@@ -1,6 +1,5 @@
 .TelaHome {
-  height: 100vh;
-  background-color: #edf3f8;
+  height: auto;
   & nav {
     background-color: #407bff;
     height: 70px;
@@ -275,4 +274,14 @@
 
 .checklist-checkbox:checked + .checklist-label::after {
   transform: scaleX(1);
+}
+.deleteIcon{
+  position: absolute;
+  right: 11%;
+  cursor: pointer;
+}
+.deleteIcon:hover{
+  background-color: red;
+  border-radius: 50%;
+  padding: 5px;
 }

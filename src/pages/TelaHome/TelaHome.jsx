@@ -56,19 +56,36 @@ function TelaHome() {
     if (!confirmar) return;
 
     try {
-      await axios.delete(
-        `http://localhost:5164/api/Tasks/DeletarTask/${id}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      await axios.delete(`http://localhost:5164/api/Tasks/DeletarTask/${id}`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       BuscaTarefa();
+      
     } catch (error) {
+      
       console.error("Erro ao deletar tarefa:", error);
     }
   }
+  async function DeleteRoutine(id) {
+    const confirmar = window.confirm(
+      "Tem certeza que deseja excluir essa rotina?"
+    );
+    if (!confirmar) return;
+
+    try {
+      await axios.delete(`http://localhost:5164/api/Tasks/DeletarRotina/${id}`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      BuscaTarefa();
+    } catch (error) {
+      
+      console.error("Erro ao deletar tarefa:", error);
+    }
+  } 
 
   async function CreatingRoutine() {
     if (!Tarefa.trim() || !DataTarefa.trim()) {
@@ -97,6 +114,7 @@ function TelaHome() {
       console.error("Erro ao criar rotina:", error);
     }
   }
+  
 
   async function GetRotinas() {
     try {
@@ -104,12 +122,11 @@ function TelaHome() {
         `http://localhost:5164/api/Tasks/ListarRotina/${userId}`
       );
 
-      // Agrupar por dia da semana
       const agrupado = {};
       response.data.forEach((item) => {
         const data = new Date(item.dateTask);
         const diaSemana = data.toLocaleDateString("pt-BR", {
-          weekday: "long",
+          weekday: "long",  
         });
 
         if (!agrupado[diaSemana]) {
@@ -119,6 +136,7 @@ function TelaHome() {
       });
 
       setRotina(agrupado);
+      
     } catch (error) {
       console.error("Erro ao buscar rotinas:", error);
     }
@@ -190,9 +208,11 @@ function TelaHome() {
 
         <div className="completeTask">
           <p className="Title">Suas Rotinas</p>
+
           <div className="taskHistory">
             {Object.entries(rotina).map(([dia, tarefasDoDia], index) => (
               <div className="checklist-container" key={index}>
+                
                 <div className="checklist-title">
                   {dia.charAt(0).toUpperCase() + dia.slice(1)}
                 </div>
