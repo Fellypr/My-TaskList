@@ -18,7 +18,7 @@ function Cadastro() {
         return;
       }
       const response = await axios.post(
-        "http://localhost:5164/api/AuteticacaoUser/register",
+        "https://my-task-list-ten.vercel.app/api/AuteticacaoUser/register",
         {
           email: Email,
           password: Password,

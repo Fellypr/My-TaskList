@@ -20,7 +20,7 @@ function TelaHome() {
     }
 
     try {
-      await axios.post("http://localhost:5164/api/Tasks/CriarTask", {
+      await axios.post("https://my-task-list-ten.vercel.app/api/Tasks/CriarTask", {
         id: userId,
         task: novaTarefa,
       });
@@ -36,7 +36,7 @@ function TelaHome() {
   async function BuscaTarefa() {
     try {
       const response = await axios.get(
-        `http://localhost:5164/api/Tasks/ListarTask/${userId}`
+        `https://my-task-list-ten.vercel.app/api/Tasks/ListarTask/${userId}`
       );
       setTarefas(response.data);
     } catch (error) {
@@ -56,7 +56,7 @@ function TelaHome() {
     if (!confirmar) return;
 
     try {
-      await axios.delete(`http://localhost:5164/api/Tasks/DeletarTask/${id}`, {
+      await axios.delete(`https://my-task-list-ten.vercel.app/api/Tasks/DeletarTask/${id}`, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -75,7 +75,7 @@ function TelaHome() {
     if (!confirmar) return;
 
     try {
-      await axios.delete(`http://localhost:5164/api/Tasks/DeletarRotina/${id}`, {
+      await axios.delete(`https://my-task-list-ten.vercel.app/api/Tasks/DeletarRotina/${id}`, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -94,7 +94,7 @@ function TelaHome() {
     }
     try {
       const response = await axios.post(
-        `http://localhost:5164/api/Tasks/CompletarTask/${userId}`,
+        `https://my-task-list-ten.vercel.app/api/Tasks/CompletarTask/${userId}`,
         {
           NameTask: Tarefa,
           DateTask: DataTarefa,
@@ -119,7 +119,7 @@ function TelaHome() {
   async function GetRotinas() {
     try {
       const response = await axios.get(
-        `http://localhost:5164/api/Tasks/ListarRotina/${userId}`
+        `https://my-task-list-ten.vercel.app/api/Tasks/ListarRotina/${userId}`
       );
 
       const agrupado = {};
