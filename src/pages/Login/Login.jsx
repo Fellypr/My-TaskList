@@ -17,8 +17,8 @@ function Login() {
       const response = await axios.post(
         "https://api-tasks-14gq.onrender.com/api/AuteticacaoUser/login",
         {
-          emailDoUsuario: Email,
-          senhaDoUsuario: Password,
+          EmailDoUsuario: Email,
+          SenhaDoUsuario: Password,
         },
         {
           headers: {

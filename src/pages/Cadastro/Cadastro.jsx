@@ -20,9 +20,9 @@ function Cadastro() {
       const response = await axios.post(
         "https://api-tasks-14gq.onrender.com/api/AuteticacaoUser/register",
         {
-          email: Email,
-          password: Password,
-          nameUser: User,
+          Email: Email,
+          Password: Password,
+          NameUser: User,
           
         },
         {
