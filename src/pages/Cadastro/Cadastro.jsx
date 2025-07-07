@@ -22,7 +22,7 @@ function Cadastro() {
         {
           email: Email,
           password: Password,
-          nameUser: User,
+          name: User,
           
         },
         {
