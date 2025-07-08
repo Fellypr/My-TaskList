@@ -5,14 +5,18 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { CiUser } from "react-icons/ci";
 import { RiLockPasswordFill } from "react-icons/ri";
+
+import Loading from "../../components/Loading/Loading";
 function Cadastro() {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const [User, setUser] = useState("");
+  const [isLoading, setisLoading] = useState(false);
   const navigate = useNavigate();
   async function RegisterUser(e) {
     e.preventDefault();
     try {
+      setisLoading(true);
       if (Email === "" || Password === "" || User === "") {
         alert("Preencha todos os campos");
         return;
@@ -37,6 +41,8 @@ function Cadastro() {
     } catch (error) {
       alert("Erro ao cadastrar usuário");
       console.error("Erro ao cadastrar usuário:", error);
+    }finally{
+      setisLoading(false);
     }
   }
   return (
@@ -91,6 +97,7 @@ function Cadastro() {
           </p>
         </div>
       </div>
+      {isLoading && <Loading />}
     </div>
   );
 }

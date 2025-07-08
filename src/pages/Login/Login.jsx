@@ -4,16 +4,19 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { CiUser } from "react-icons/ci";
 import { RiLockPasswordFill } from "react-icons/ri";
+import Loading from "../../components/Loading/Loading";
 function Login() {
   const navigate = useNavigate();
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const [User, setUser] = useState(null);
   const [nome, setNome] = useState("");
+  const [isLoading, setisLoading] = useState(false);
 
   async function Registering(e) {
     e.preventDefault();
     try {
+      setisLoading(true);
       const response = await axios.post(
         "https://api-tasks-14gq.onrender.com/api/AuteticacaoUser/login",
         {
@@ -31,11 +34,12 @@ function Login() {
       localStorage.setItem("userId", response.data.userId);
       localStorage.setItem("nome", response.data.nome);
       alert("Usuário logado com sucesso", response.data.userId);
-      console.log("Usuário logado com sucesso:", response.data);
       navigate("/telaHome");
     } catch (error) {
-      alert("Erro ao cadastrar usuário", error);
-    }
+      alert("Login inválido", error);
+    }finally{
+      setisLoading(false);
+    } 
   }
 
   return (
@@ -80,6 +84,7 @@ function Login() {
           </p>
         </div>
       </div>
+      {isLoading && <Loading />}
     </div>
   );
 }

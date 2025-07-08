@@ -88,3 +88,38 @@
     }
   }
 }
+
+@media screen and (max-width: 810px) {
+  .loginPage {
+    & .loginContainer {
+      flex-direction: column;
+      gap: 0rem;
+      height: 100%;
+      & .loginForm {
+       width: 50%;
+      }
+    }
+  }
+  h2{
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .loginPage {
+    & .loginContainer {
+      flex-direction: column;
+      gap: 0rem;
+      height: 100%;
+      & .loginForm {
+       width: 40%;
+      }
+    }
+  }
+  h2{
+    text-align: center;
+  }
+  p{
+    text-align: center;
+  }
+}
